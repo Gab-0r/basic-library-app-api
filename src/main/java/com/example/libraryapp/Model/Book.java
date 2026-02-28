@@ -2,12 +2,10 @@ package com.example.libraryapp.Model;
 
 
 import com.example.libraryapp.DTO.Book.BookRequest;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.Year;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -21,6 +19,9 @@ public class Book {
     private String author;
     private String isbn;
     private Year publicationYear;
+
+    @OneToMany(mappedBy = "book")
+    private List<Loan> loans;
 
     public static Book from(BookRequest bookRequest){
         Book book = new Book();

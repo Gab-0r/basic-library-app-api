@@ -26,6 +26,7 @@ public class Member {
         Member member = new Member();
         member.setEmail(memberRequest.getEmail());
         member.setName(memberRequest.getName());
+        member.setMembershipDate(LocalDate.now());
         return member;
     }
 

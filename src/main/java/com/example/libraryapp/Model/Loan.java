@@ -29,6 +29,8 @@ public class Loan {
         Loan loan = new Loan();
         loan.setBook(book);
         loan.setMember(member);
+        loan.setReturned(Boolean.FALSE);
+        loan.setLoanDate(LocalDate.now());
         return loan;
     }
 
