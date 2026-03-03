@@ -55,4 +55,9 @@ public class BookController {
         service.deleteById(id);
     }
 
+    @GetMapping("")
+    public List<Book> allAvailableBooks(){
+        return service.findAvailableBooks();
+    }
+
 }

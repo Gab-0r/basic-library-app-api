@@ -54,4 +54,8 @@ public class BookService {
     public void deleteById(Long id){
         repository.deleteById(id);
     }
+
+    public List<Book> findAvailableBooks(){
+        return repository.findAvailableBooks();
+    }
 }

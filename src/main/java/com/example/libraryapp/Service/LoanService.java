@@ -54,7 +54,13 @@ public class LoanService {
     public Loan save(LoanRequest loanRequest){
         Member member = memberService.findById(loanRequest.getMemberId());
         Book book = bookService.findById(loanRequest.getBookId());
-        return repository.save(Loan.from(book, member));
+        List<Book> availableBooks = bookService.findAvailableBooks();
+        if (availableBooks.contains(book)){
+            throw new RuntimeException("Book is not available for loan");
+        }
+        else {
+            return repository.save(Loan.from(book, member));
+        }
     }
 
     public Loan update(Long id, Loan loan){

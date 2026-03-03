@@ -30,6 +30,14 @@ public class Book {
         return book;
     }
 
+    public List<Loan> getLoans() {
+        return loans;
+    }
+
+    public void setLoans(List<Loan> loans) {
+        this.loans = loans;
+    }
+
     public Long getId() {
         return id;
     }
